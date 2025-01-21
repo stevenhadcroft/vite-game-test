@@ -90,10 +90,24 @@ export class MainScene extends Scene {
         });
     }
 
+    // update() {
+    //     this.player.update();
+    //     this.enemy_blue.update();
+
+    //     // Player movement entries
+    //     if (this.cursors.up.isDown) {
+    //         this.player.move("up");
+    //     }
+    //     if (this.cursors.down.isDown) {
+    //         this.player.move("down");
+    //     }
+
+    // }
+
     update() {
         this.player.update();
         this.enemy_blue.update();
-
+    
         // Player movement entries
         if (this.cursors.up.isDown) {
             this.player.move("up");
@@ -101,6 +115,11 @@ export class MainScene extends Scene {
         if (this.cursors.down.isDown) {
             this.player.move("down");
         }
-
+        if (this.cursors.left.isDown) {
+            this.player.move("left");
+        }
+        if (this.cursors.right.isDown) {
+            this.player.move("right");
+        }
     }
 }
