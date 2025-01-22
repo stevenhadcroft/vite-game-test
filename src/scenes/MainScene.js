@@ -2,6 +2,7 @@ import { Scene } from "phaser";
 import { Player } from "../gameobjects/Player";
 import { BlueEnemy } from "../gameobjects/BlueEnemy";
 import { Planet } from "../gameobjects/Planet";
+import { Citizen } from "../gameobjects/Citizen";
 
 export class MainScene extends Scene {
     player = null;
@@ -39,6 +40,8 @@ export class MainScene extends Scene {
         // Add the planet
         this.planet = new Planet({ scene: this });
 
+        this.citizen = new Citizen({ scene: this });
+        
         // Cursor keys 
         this.cursors = this.input.keyboard.createCursorKeys();
         this.cursors.space.on("down", () => {
@@ -57,7 +60,7 @@ export class MainScene extends Scene {
         this.physics.add.overlap(this.enemy_blue.bullets, this.planet.body, (planet, bullet) => {
             bullet.destroyBullet();
         });
-        
+
         // Overlap enemy with bullets
         this.physics.add.overlap(this.player.bullets, this.enemy_blue, (enemy, bullet) => {
             bullet.destroyBullet();
